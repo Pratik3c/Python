@@ -165,4 +165,10 @@ with open("users.csv", "r", encoding="utf-8") as f:
 
 ---
 
+### Q: Why do we use `if __name__ == "__main__"` (main guard)?
+```
+Answer:
+To ensure that code executes only when the script is run directly, and not when imported as a module.
+```
+
 ### 🚀 Ready for Industry-Level Python File Handling
