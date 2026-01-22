@@ -769,7 +769,7 @@ a = [12,13,14,15,16,34.5,True,print(),"Hello"]
 # r.close()
 
 
-
+#---------------------------------------------------------
 
 # class Factory:
 #     a = 12 # attribute 
@@ -821,17 +821,50 @@ a = [12,13,14,15,16,34.5,True,print(),"Hello"]
 #     def hello(cls):
 #         print(f"how are you brother {cls.age}")  # class methods can't access the instance attribute
 
-#     @staticmethod
+#     @staticmethod     # can be called directly without creating the object, it belongs to class.Used as utility/helper functions.
 #     def static():
 #         print("how are you")
 
-   
 
 # obj = Animal(12)
 
 # obj.show()
 # obj.hello()
 # obj.static()
+
+## @staticmethod vs @classmethod
+# | Feature              | @staticmethod           | @classmethod |
+# | -------------------- | ----------------------- | ------------ |
+# | First parameter      | None                    | `cls` (class)|
+# | Access instance data | ❌ No                   | ❌ No       |
+# | Access class data    | ❌ No                   | ✅ Yes      |
+# | Common use           | Utility / helper methods | Factory methods, class-level operations |
+
+
+# class MyClass:
+#     def public_method(self):
+#         print("Public method")
+
+#     def _protected_method(self):
+#         print("Protected method (by convention)")
+
+#     def __private_method(self):
+#         print("Private method (name mangled)")
+
+# obj = MyClass()
+
+# # Public method - Accessible from anywhere.
+# obj.public_method()  # ✅ Works
+
+# # Protected method - Accessible within the class and subclasses.
+# obj._protected_method()  # ⚠ Works, but not recommended
+
+# # Private method - not directly accessible
+# # obj.__private_method()  # ❌ AttributeError
+# obj._MyClass__private_method()  # ✅ Works via name mangling
+
+
+
 
 """Inheritance"""
 
@@ -1210,4 +1243,5 @@ a = [12,13,14,15,16,34.5,True,print(),"Hello"]
 # for i in dict:
 #     if dict[i] == max:
 #         print(f"{i} occured {max} times and that is largest occurence")
+
 #         break
